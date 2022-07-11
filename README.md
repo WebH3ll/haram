@@ -3,8 +3,7 @@
 ---
 
 > **Study Notion**
-[Web Hacking - WebH3ll](https://www.notion.so/Web-Hacking-WebH3ll-70ee025b579b4ac08439320c4c700dd7)
-> 
+> [Web Hacking - WebH3ll](https://myoungseok98.notion.site/Web-Hacking-WebH3ll-70ee025b579b4ac08439320c4c700dd7)
 
 # PHP
 
@@ -12,10 +11,10 @@
 
 ---
 
-- `phpinfo()` 명령어를 통해 PHP 정보 확인 가능 → PHP Variables에서 환경 변수 확인 가능
-- `$_GET` : 파라미터로 넘긴 변수를 배열로 출력
-    - `print_r($_GET)` 으로 배열 확인 가능
-    - `$_GET['var']` 으로 접근
+-   `phpinfo()` 명령어를 통해 PHP 정보 확인 가능 → PHP Variables에서 환경 변수 확인 가능
+-   `$_GET` : 파라미터로 넘긴 변수를 배열로 출력
+    -   `print_r($_GET)` 으로 배열 확인 가능
+    -   `$_GET['var']` 으로 접근
 
 ### 조건 분기문(IF)
 
@@ -65,7 +64,7 @@ foreach($a as $key=>$b) {
 	echo "$key : $b <br> ";
 ```
 
-- 다중 배열
+-   다중 배열
 
 ```php
 $list = array();
@@ -91,7 +90,6 @@ $list[] = $data;
 </aside>
 
 > `explode(구분자, 문자열)` : 구분자를 기준으로 문자열을 잘라 배열을 반환
-> 
 
 ```php
 $str = "안녕하세요,저의,이름은,서기입니다";
@@ -103,26 +101,22 @@ $arr = explode(",", $str);
 
 ---
 
-- 파일 열기 - `fopen(경로, mode)`
-- 파일 읽기 - `fread(resource, length)`
-- 파일 작성 - `fwrite(resource, string)`
-- 파일 닫기 - `fclose(resource)`
+-   파일 열기 - `fopen(경로, mode)`
+-   파일 읽기 - `fread(resource, length)`
+-   파일 작성 - `fwrite(resource, string)`
+-   파일 닫기 - `fclose(resource)`
 
 ### 다른 파일 삽입
 
 ---
 
 > `include "file"` / `iclude("file")`: file을 삽입
-> 
 
 > `include_once "file"` / `include_once("file")` : 전체 프로그램에서 file을 한 번 삽입
-> 
 
 > `require "file"` / `require("file")` : include와 동일하나 더 엄격
-> 
 
 > `require_once "file"` / `require_once("file")` : include_once와 동일하나 더 엄격
-> 
 
 ### 사용자 정의 함수
 
@@ -145,7 +139,7 @@ function func($parameter) {
 <?
 	// first.php
 	namespace first;
-	
+
 	function func() {
 		return 10;
 	}
@@ -164,7 +158,7 @@ function func($parameter) {
 	// main.php
 	include "first.php";
 	include "second.php";
-	
+
 	echo first\func();   // 10
 	echo second\func();  // 20
 ?>
@@ -174,10 +168,9 @@ function func($parameter) {
 
 ---
 
-- `$_FILES['name']` : 업로드된 파일을 관리
-    
+-   `$_FILES['name']` : 업로드된 파일을 관리
     ```php
-    Array 
+    Array
     (
     	[name] => file_name.exe
     	[type] => file_type(application/x-msdownload
@@ -186,14 +179,13 @@ function func($parameter) {
     	[size] => file_size
     )
     ```
-    
-- `move_uploaded_file($_FILES['name']['tmp_name'], $destination)` : 업로드된 파일을 다른 경로에 이동
+-   `move_uploaded_file($_FILES['name']['tmp_name'], $destination)` : 업로드된 파일을 다른 경로에 이동
 
 ### MySQL 접속
 
 ---
 
-- 접속 및 접속 확인
+-   접속 및 접속 확인
 
 ```php
 $connect = mysqli_connect("localhost", "user", "password", "db_name");
@@ -206,7 +198,7 @@ if(mysqli_connect_error()) {
 print_r($connect);
 ```
 
-- 쿼리 실행
+-   쿼리 실행
 
 ```php
 $connect = mysqli_connect("localhost", "user", "password", "db_name");
@@ -248,19 +240,18 @@ while($row = mysqli_fetch_array($result)) {
 
 ---
 
-- DB 측에서 암호화
-    - `~~insert into Table(pwd) values(password(pwd))` - password() 함수로 감싸 암호화 진행~~ → MySQL 8 이후부터는 사용불가
-    - `insert into Table(pwd) values(md5('$pwd'))` → MD5로 암호화
+-   DB 측에서 암호화
+    -   `~~insert into Table(pwd) values(password(pwd))` - password() 함수로 감싸 암호화 진행~~ → MySQL 8 이후부터는 사용불가
+    -   `insert into Table(pwd) values(md5('$pwd'))` → MD5로 암호화
 
 ### 로그인 구현
 
 ---
 
-- cookie 설정
-    - `setcookie($name)` : name 명의 쿠키 값 설정
-- session 설정
-    - `session_start()` : 세션 사용 시작
-    
+-   cookie 설정
+    -   `setcookie($name)` : name 명의 쿠키 값 설정
+-   session 설정
+    -   `session_start()` : 세션 사용 시작
 
 <aside>
 💡 `Header("Location : destination.php")` : destination으로 페이지 이동 함수
@@ -276,7 +267,7 @@ while($row = mysqli_fetch_array($result)) {
 
 ---
 
-- 클래스 선언과 생성
+-   클래스 선언과 생성
 
 ```php
 // 클래스 선언
@@ -288,7 +279,7 @@ class className {
 $a = new className();
 ```
 
-- public 멤버 vs private 멤버
+-   public 멤버 vs private 멤버
 
 ```php
 class info {
@@ -325,15 +316,15 @@ $a->_age = 15; // 오류(private 멤버는 클래스 내부에서만 사용 가�
 
 ---
 
-- `simple_html_dom.php` download
+-   `simple_html_dom.php` download
 
 [PHP Simple HTML DOM Parser Files](https://sourceforge.net/projects/simplehtmldom/files/)
 
-- `simple_html_dom.php` manual
+-   `simple_html_dom.php` manual
 
 [](https://simplehtmldom.sourceforge.io/)
 
-- 초기 사용
+-   초기 사용
 
 ```php
 ini_set("allow_url_fopen", 1);
@@ -343,7 +334,7 @@ $url = '크롤링 하고자 하는 url';
 $data = file_get_html($url);
 ```
 
-- parsing
+-   parsing
 
 ```php
 foreach($data->find("태그.클래스명") as $d) {
