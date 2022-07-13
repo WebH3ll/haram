@@ -1,5 +1,13 @@
 <?
 
+/*
+    [mysql create table]
+    idx int auto_increment
+    uid varchar(50)
+    pwd varchar(150)
+    name varchar(20)
+*/
+
 include "default_setting.php"; // 오류 메시지 제거, mysql 연결, session start
 
 $isLogin = $_SESSION['isLogin'];
