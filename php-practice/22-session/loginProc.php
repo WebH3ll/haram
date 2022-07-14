@@ -1,3 +1,5 @@
+<!-- php-practice : 22-session -->
+
 <?
 include "default_setting.php";
 
@@ -14,9 +16,9 @@ $data = mysqli_fetch_array($result);
 if (isset($data)) {
     $_SESSION['isLogin'] = time();
 ?>
-    <script>
-        location.href = 'list.php';
-    </script>
+<script>
+location.href = 'list.php';
+</script>
 <?
 } else {
     echo "로그인 정보가 올바르지 않습니다.";

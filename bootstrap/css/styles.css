@@ -7736,6 +7736,7 @@ textarea.form-control-lg {
 .text-secondary {
   --bs-text-opacity: 1;
   color: var(--bs-gray-900) !important;
+  font-family: 'twayair';
 }
 
 .text-success {

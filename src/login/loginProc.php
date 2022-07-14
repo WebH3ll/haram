@@ -1,19 +1,25 @@
 <?
 include "../default_setting.php";
+include "../dbClass.php";
 
 $uid = $_POST['uid'];
 $upass = $_POST['upass'];
 
-$uid = mysqli_real_escape_string($connect, $uid);
-$upass = mysqli_real_escape_string($connect, $upass);
+$query = "select * from user where uid=? and upass=md5(?)";
+$data = $db->query($query, $uid, $upass)->fetchArray();
 
-if (isset($data)) {
-    $_SESSION['isLogin'] = time();
+// 로그인 실패
+if(!isset($data['idx'])) {
+    echo "로그인 정보가 잘못 되었습니다.";
 ?>
-    <script>
-        location.href = 'list.php';
-    </script>
+<br>
+<a href="../../index.php">홈으로</a>
 <?
-} else {
-    echo "로그인 정보가 올바르지 않습니다.";
+    exit;
 }
+
+// 로그인 성공
+$_SESSION['isLogin'] = $uid;
+setcookie("user_name",  $data['name'], 0,'/');
+
+Header("Location: ../../index.php");
