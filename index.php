@@ -40,7 +40,7 @@ include "src/default_setting.php";
                 class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/index.php">Main</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/">Main</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/src/board/">Board</a></li>
             </ul>
         </div>

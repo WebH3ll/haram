@@ -52,30 +52,22 @@ include "../dbClass.php";
 
         <section class="resume-section" id="about">
             <div class="resume-section-content">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">name</th>
-                            <th scope="col">title</th>
-                            <th scope="col">regdate</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?
+
+                <?
                         $query = "select * from board where uid=?";
                         $list = $db->query($query, $_SESSION['isLogin'])->fetchAll();
                         foreach($list as $data) { 
-                        ?>
-                        <tr>
-                            <th scope="row"><?= $data['idx'] ?></th>
-                            <td><?= $data['uid'] ?></td>
-                            <td><a href="./detail.php?<?=$data['idx']?>"><?= $data['title'] ?></a></td>
-                            <td>@<?= $data['regdate'] ?></td>
-                        </tr>
-                        <?  } ?>
-                    </tbody>
-                </table>
+                ?>
+                <?= $data['idx'] ?>
+                <hr>
+                <?= $data['uid'] ?>
+                <hr>
+                <?= $data['title'] ?>
+                <hr>
+                @<?= $data['regdate'] ?>
+                <hr>
+                <?= nl2br($data['content'])?>
+                <?  } ?>
             </div>
         </section>
     </div>
