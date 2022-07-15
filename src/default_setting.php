@@ -1,5 +1,5 @@
 <?
-$connect = mysqli_connect("13.125.206.156", "root", "0620", "webhell_db");
+$connect = mysqli_connect("13.125.207.167", "root", "0620", "webhell_db");
 
 if (mysqli_connect_error()) {
     echo "접속 중 에러 발생";
