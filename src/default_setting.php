@@ -12,3 +12,6 @@ if (mysqli_connect_error()) {
 
 // session 시작
 session_start();
+
+// super-fast php mysql db
+include "dbClass.php";

@@ -31,11 +31,11 @@ include "../default_setting.php";
 
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <div class="navbar-brand js-scroll-trigger">
             <span class="d-none d-lg-block">
                 <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="https://cdn.imweb.me/upload/S20200903356594b8dc821/0962e15de8a7a.jpg" alt="..." />
             </span>
-        </a>
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
@@ -51,31 +51,23 @@ include "../default_setting.php";
         <section class="resume-section" id="about">
             <div class="resume-section-content">
 
-                <!-- Back Icon -->
-                <div class="mb-5">
-                    <a href="./"><i class="bi bi-arrow-left-short fa-2x"></i></a>
-                </div>
+                <!-- Content -->
+                <form action="postProc.php" method="post" class="d-flex flex-column">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="title" placeholder="Leave a title here" name="title">
+                        <label for="title">Title</label>
+                    </div>
 
-                <!-- Post content -->
-                <?
-                $query = "select * from board where idx=?";
-                $list = $db->query($query, $_GET['idx'])->fetchAll();
-                foreach ($list as $data) {
-                ?>
-                    # : <?= $data['idx'] ?>
-                    <hr>
-                    ID : <?= $data['uid'] ?>
-                    <hr>
-                    Title : <?= $data['title'] ?>
-                    <hr>
-                    Regdate : @<?= $data['regdate'] ?>
-                    <hr>
-                    Content : <?= nl2br($data['content']) ?>
-                <?  } ?>
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a content here" id="content" style="height: 100px" name="content"></textarea>
+                        <label for="content">Content</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-3 align-self-end">Post</button>
+                </form>
+
             </div>
         </section>
-    </div>
-    <hr class="m-0" />
     </div>
 
     <!-- Bootstrap core JS-->
