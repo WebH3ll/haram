@@ -15,8 +15,7 @@ include "src/default_setting.php";
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
-        type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="bootstrap/css/styles.css" rel="stylesheet" />
@@ -31,13 +30,10 @@ include "src/default_setting.php";
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
             <span class="d-none d-lg-block">
-                <img class="img-fluid img-profile rounded-circle mx-auto mb-2"
-                    src="https://cdn.imweb.me/upload/S20200903356594b8dc821/0962e15de8a7a.jpg" alt="..." />
+                <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="https://cdn.imweb.me/upload/S20200903356594b8dc821/0962e15de8a7a.jpg" alt="..." />
             </span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/">Main</a></li>
@@ -48,17 +44,17 @@ include "src/default_setting.php";
 
     <!-- Page Content-->
     <div class="container-fluid p-0">
-        <!-- About-->
+
         <section class="resume-section" id="about">
             <div class="resume-section-content">
                 <h1 class="mb-0">
                     Hello
                     <?
-                        if (isset($_COOKIE['user_name'])) {
-                        ?>
-                    <span class="text-primary"><?= $_COOKIE['user_name'] ?></span>
+                    if (isset($_COOKIE['user_name'])) {
+                    ?>
+                        <span class="text-primary"><?= $_COOKIE['user_name'] ?></span>
                     <? } else { ?>
-                    <span class="text-primary">Web-Hell</span>
+                        <span class="text-primary">Web-Hell</span>
                     <? } ?>
                 </h1>
                 <div class="subheading mb-5">
@@ -67,82 +63,66 @@ include "src/default_setting.php";
 
                 <!-- Before Log In -->
                 <?
-                    if(!isset($_SESSION['isLogin'])) {
+                if (!isset($_SESSION['isLogin'])) {
                 ?>
 
-                <!-- login manage -->
-                <form class="container" action="src/login/loginProc.php" method="post">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">@</span>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                            aria-describedby="basic-addon1" name="uid">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">&nbsp;*&nbsp;</span>
-                        <input type="password" class="form-control" placeholder="Password" aria-label="Password"
-                            aria-describedby="basic-addon1" name="upass">
-                    </div>
-                    <div class="input-group">
-                        <button type="submit" class="btn btn-primary text-secondary w-75">Login</button>
+                    <!-- login manage -->
+                    <form class="container" action="src/login/loginProc.php" method="post">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">@</span>
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="uid">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">&nbsp;*&nbsp;</span>
+                            <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="upass">
+                        </div>
+                        <div class="input-group">
+                            <button type="submit" class="btn btn-primary text-secondary w-75">Login</button>
 
-                        <button type="button" class="btn btn-outline-primary text-secondary w-25" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"">Sign up</button>
-                    </div>
-                </form>
+                            <button type="button" class="btn btn-outline-primary text-secondary w-25" data-bs-toggle="modal" data-bs-target="#exampleModal"">Sign up</button>
+                        </div>
+                    </form>
 
                 <? } else { ?>
                 <!-- After Log In -->
-                    <button type=" button" class="btn btn-primary text-secondary w-10"
-                            onclick="location.href='src/login/logout.php'">Logout</button>
+                    <button type=" button" class="btn btn-primary text-secondary w-10" onclick="location.href='src/login/logout.php'">Logout</button>
                         <? } ?>
 
                         <!-- social icons -->
                         <div class=" social-icons mt-5">
-                            <a class="social-icon" href="https://github.com/WebH3ll" target="_blank"><i
-                                    class="fab fa-github"></i></a>
-                            <a class="social-icon"
-                                href="https://myoungseok98.notion.site/Web-Hacking-WebH3ll-70ee025b579b4ac08439320c4c700dd7"
-                                target="_blank"><span class="iconify" data-icon="simple-icons:notion"></span></a>
+                            <a class="social-icon" href="https://github.com/WebH3ll" target="_blank"><i class="fab fa-github"></i></a>
+                            <a class="social-icon" href="https://myoungseok98.notion.site/Web-Hacking-WebH3ll-70ee025b579b4ac08439320c4c700dd7" target="_blank"><span class="iconify" data-icon="simple-icons:notion"></span></a>
                         </div>
 
                         <!-- Modal -->
-                        <div class=" modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                        <div class=" modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
 
-                                    <!-- Form -->
+                                    <!-- Modal Form -->
                                     <form action="src/login/signup.php" method="post">
                                         <div class="modal-body">
-
                                             <!-- input -->
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text"
-                                                    id="inputGroup-sizing-default">&nbsp;?&nbsp;</span>
-                                                <input type="text" class="form-control" placeholder="name"
-                                                    aria-label="Password" aria-describedby="basic-addon1" name="name">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">&nbsp;?&nbsp;</span>
+                                                <input type="text" class="form-control" placeholder="name" aria-label="Password" aria-describedby="basic-addon1" name="name">
                                             </div>
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">@</span>
-                                                <input type="text" class="form-control" placeholder="ID" aria-label="ID"
-                                                    aria-describedby="basic-addon1" name="uid">
+                                                <input type="text" class="form-control" placeholder="ID" aria-label="ID" aria-describedby="basic-addon1" name="uid">
                                             </div>
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text"
-                                                    id="inputGroup-sizing-default">&nbsp;*&nbsp;</span>
-                                                <input type="password" class="form-control" placeholder="Password"
-                                                    aria-label="Password" aria-describedby="basic-addon1" name="upass">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">&nbsp;*&nbsp;</span>
+                                                <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="upass">
                                             </div>
-
                                         </div>
+
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                             <button type="submit" class="btn btn-primary">Sign up</button>
                                         </div>
                                     </form>
@@ -150,10 +130,8 @@ include "src/default_setting.php";
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        </div>
         </section>
-    </div>
-    <hr class="m-0" />
     </div>
 
     <!-- Bootstrap core JS-->
