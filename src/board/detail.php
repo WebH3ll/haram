@@ -62,15 +62,15 @@ include "../default_setting.php";
                 $list = $db->query($query, $_GET['idx'])->fetchAll();
                 foreach ($list as $data) {
                 ?>
-                    # : <?= $data['idx'] ?>
+                    <b>#<?= $data['idx'] ?></b>
                     <hr>
-                    ID : <?= $data['uid'] ?>
+                    <b>ID : </b><?= $data['uid'] ?>
                     <hr>
-                    Title : <?= $data['title'] ?>
+                    <b>Title : </b><?= $data['title'] ?>
                     <hr>
-                    Regdate : @<?= $data['regdate'] ?>
+                    <b>Regdate : </b>@<?= $data['regdate'] ?>
                     <hr>
-                    Content : <?= nl2br($data['content']) ?>
+                    <b>Content : </b><?= nl2br($data['content']) ?>
                 <?  } ?>
             </div>
         </section>

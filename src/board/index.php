@@ -40,6 +40,9 @@ include "../default_setting.php";
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../../">Main</a></li>
+                <? if (isset($_SESSION['isLogin'])) { ?>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/src/mypage">My page</a></li>
+                <? } ?>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="./">Board</a></li>
             </ul>
         </div>

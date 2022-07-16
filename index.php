@@ -37,6 +37,9 @@ include "src/default_setting.php";
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/">Main</a></li>
+                <? if (isset($_SESSION['isLogin'])) { ?>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/src/mypage">My page</a></li>
+                <? } ?>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/src/board/">Board</a></li>
             </ul>
         </div>
@@ -79,58 +82,60 @@ include "src/default_setting.php";
                         <div class="input-group">
                             <button type="submit" class="btn btn-primary text-secondary w-75">Login</button>
 
-                            <button type="button" class="btn btn-outline-primary text-secondary w-25" data-bs-toggle="modal" data-bs-target="#exampleModal"">Sign up</button>
+                            <button type="button" class="btn btn-outline-primary text-secondary w-25" data-bs-toggle="modal" data-bs-target="#signupModal">Sign up</button>
                         </div>
                     </form>
 
                 <? } else { ?>
-                <!-- After Log In -->
+                    <!-- After Log In -->
                     <button type=" button" class="btn btn-primary text-secondary w-10" onclick="location.href='src/login/logout.php'">Logout</button>
-                        <? } ?>
+                <? } ?>
 
-                        <!-- social icons -->
-                        <div class=" social-icons mt-5">
-                            <a class="social-icon" href="https://github.com/WebH3ll" target="_blank"><i class="fab fa-github"></i></a>
-                            <a class="social-icon" href="https://myoungseok98.notion.site/Web-Hacking-WebH3ll-70ee025b579b4ac08439320c4c700dd7" target="_blank"><span class="iconify" data-icon="simple-icons:notion"></span></a>
+                <!-- social icons -->
+                <div class=" social-icons mt-5">
+                    <a class="social-icon" href="https://github.com/WebH3ll" target="_blank"><i class="fab fa-github"></i></a>
+                    <a class="social-icon" href="https://myoungseok98.notion.site/Web-Hacking-WebH3ll-70ee025b579b4ac08439320c4c700dd7" target="_blank"><span class="iconify" data-icon="simple-icons:notion"></span></a>
+                </div>
+
+
+            </div>
+
+            <!-- Modal -->
+            <div class=" modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="signupModalLabel">Sign up</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
 
-                        <!-- Modal -->
-                        <div class=" modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-
-                                    <!-- Modal Form -->
-                                    <form action="src/login/signup.php" method="post">
-                                        <div class="modal-body">
-                                            <!-- input -->
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-default">&nbsp;?&nbsp;</span>
-                                                <input type="text" class="form-control" placeholder="name" aria-label="Password" aria-describedby="basic-addon1" name="name">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-default">@</span>
-                                                <input type="text" class="form-control" placeholder="ID" aria-label="ID" aria-describedby="basic-addon1" name="uid">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-default">&nbsp;*&nbsp;</span>
-                                                <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="upass">
-                                            </div>
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Sign up</button>
-                                        </div>
-                                    </form>
-
+                        <!-- Modal Form -->
+                        <form action="src/login/signup.php" method="post">
+                            <div class="modal-body">
+                                <!-- input -->
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">&nbsp;?&nbsp;</span>
+                                    <input type="text" class="form-control" placeholder="name" aria-label="Password" aria-describedby="basic-addon1" name="name">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">@</span>
+                                    <input type="text" class="form-control" placeholder="ID" aria-label="ID" aria-describedby="basic-addon1" name="uid">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">&nbsp;*&nbsp;</span>
+                                    <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="upass">
                                 </div>
                             </div>
-                        </div>
-                        </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Sign up</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 
