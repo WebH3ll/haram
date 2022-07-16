@@ -95,6 +95,7 @@ include "src/default_setting.php";
                 <div class=" social-icons mt-5">
                     <a class="social-icon" href="https://github.com/WebH3ll" target="_blank"><i class="fab fa-github"></i></a>
                     <a class="social-icon" href="https://myoungseok98.notion.site/Web-Hacking-WebH3ll-70ee025b579b4ac08439320c4c700dd7" target="_blank"><span class="iconify" data-icon="simple-icons:notion"></span></a>
+                    <a class="social-icon" href="http://13.125.207.167/" target="_blank"><i class="fa-brands fa-aws"></i></a>
                 </div>
 
 
