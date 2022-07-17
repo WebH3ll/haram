@@ -24,7 +24,7 @@ include "../default_setting.php";
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css">
 
     <!-- my css -->
-    <link href="../../bootstrap/css/mystyles.css" rel="stylesheet" />
+    <link href="/src/mystyles.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
@@ -40,6 +40,9 @@ include "../default_setting.php";
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../../">Main</a></li>
+                <? if (isset($_SESSION['isLogin'])) { ?>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/src/mypage">My page</a></li>
+                <? } ?>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="./">Board</a></li>
             </ul>
         </div>
@@ -51,27 +54,33 @@ include "../default_setting.php";
         <section class="resume-section" id="about">
             <div class="resume-section-content">
 
+                <?
+                $query = "select * from board where idx=?";
+                $data = $db->query($query, $_GET['idx'])->fetchArray();
+                ?>
+
                 <!-- Back Icon -->
                 <div class="mb-5">
                     <a href="./"><i class="bi bi-arrow-left-short fa-2x"></i></a>
                 </div>
 
+                <!-- Edit post -->
+                <? if ($data['uid'] == $_SESSION['isLogin']) { ?>
+                    <div class="d-flex justify-content-end mb-3">
+                        <a href="./editPost.php?idx=<?= $_GET['idx'] ?>" class="edit-icon">Edit <i class="fa-solid fa-wrench"></i></a>
+                    </div>
+                <? } ?>
+
                 <!-- Post content -->
-                <?
-                $query = "select * from board where idx=?";
-                $list = $db->query($query, $_GET['idx'])->fetchAll();
-                foreach ($list as $data) {
-                ?>
-                    <b>#<?= $data['idx'] ?></b>
-                    <hr>
-                    <b>ID : </b><?= $data['uid'] ?>
-                    <hr>
-                    <b>Title : </b><?= $data['title'] ?>
-                    <hr>
-                    <b>Regdate : </b>@<?= $data['regdate'] ?>
-                    <hr>
-                    <b>Content : </b><?= nl2br($data['content']) ?>
-                <?  } ?>
+                <b>#<?= $data['idx'] ?></b>
+                <hr>
+                <b>ID : </b><?= $data['uid'] ?>
+                <hr>
+                <b>Title : </b><?= $data['title'] ?>
+                <hr>
+                <b>Regdate : </b>@<?= $data['regdate'] ?>
+                <hr>
+                <b>Content : </b><?= nl2br($data['content']) ?>
             </div>
         </section>
     </div>

@@ -54,8 +54,16 @@ include "../default_setting.php";
         <section class="resume-section" id="about">
             <div class="resume-section-content">
 
+                <!-- Load previous Data -->
+                <?
+                $query = "SELECT * FROM board WHERE idx=?";
+                $data = $db->query($query, $_GET['idx'])->fetchArray();
+                ?>
+
                 <!-- Content -->
-                <form action="postProc.php" method="post" class="d-flex flex-column">
+                <form action="editPostProc.php" method="post" class="d-flex flex-column">
+                    <input type="hidden" name="idx" value="<?= $_GET['idx'] ?>">
+
                     <div class="form-check align-self-end mb-2">
                         <label class="form-check-label fs-4 align-middle " for="privateCheck">
                             Private
@@ -65,15 +73,15 @@ include "../default_setting.php";
 
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="title" placeholder="Leave a title here" name="title">
-                        <label for="title">Title</label>
+                        <label for="title"><?= $data['title'] ?></label>
                     </div>
 
                     <div class="form-floating">
                         <textarea class="form-control" placeholder="Leave a content here" id="content" style="height: 100px" name="content"></textarea>
-                        <label for="content">Content</label>
+                        <label for="content"><?= $data['content'] ?></label>
                     </div>
 
-                    <button type="submit" class="btn btn-primary mt-3 align-self-end">Post</button>
+                    <button type="submit" class="btn btn-primary mt-3 align-self-end">Edit</button>
                 </form>
 
             </div>

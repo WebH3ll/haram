@@ -1,4 +1,20 @@
-/* mypage/editProfile.php */
+/* /src/board/detail.php */
+.edit-icon {
+    text-decoration: none !important;
+    font-size: 1.2rem;
+}
+
+/* /src/board/editPost.php */
+.edit-post-input {
+    /* display: inline-block;
+    min-height: 1em;
+    vertical-align: middle;
+    cursor: wait;
+    background-color: currentColor;
+    opacity: 0.5; */
+}
+
+/* /src/mypage/editProfile.php */
 .profile-title {
 	color: blue;
 	margin-bottom: 0;

@@ -70,12 +70,13 @@ include "../default_setting.php";
                                 <th scope="col">name</th>
                                 <th scope="col">title</th>
                                 <th scope="col">regdate</th>
+                                <th scope="col">isPrivate</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?
-                            $query = "select * from board where uid=?";
-                            $list = $db->query($query, $_SESSION['isLogin'])->fetchAll();
+                            $query = "select * from board";
+                            $list = $db->query($query)->fetchAll();
                             foreach ($list as $data) {
                             ?>
                                 <tr>
@@ -83,6 +84,11 @@ include "../default_setting.php";
                                     <td><?= $data['uid'] ?></td>
                                     <td><a href="./detail.php?idx=<?= $data['idx'] ?>"><?= $data['title'] ?></a></td>
                                     <td>@<?= $data['regdate'] ?></td>
+                                    <td>
+                                        <? if ($data['isPrivate'] == 1) { ?>
+                                            <i class="fa-solid fa-lock"></i>
+                                        <? } ?>
+                                    </td>
                                 </tr>
                             <?  } ?>
                         </tbody>
