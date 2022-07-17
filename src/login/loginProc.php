@@ -11,8 +11,8 @@ $data = $db->query($query, $uid, $upass)->fetchArray();
 if (!isset($data['idx'])) {
     echo "로그인 정보가 잘못 되었습니다.";
 ?>
-    <br>
-    <a href="../../index.php">홈으로</a>
+<br>
+<a href="/">홈으로</a>
 <?
     exit;
 }
@@ -21,4 +21,4 @@ if (!isset($data['idx'])) {
 $_SESSION['isLogin'] = $uid;
 setcookie("user_name",  $data['name'], 0, '/');
 
-Header("Location: ../../index.php");
+Header("Location: /");

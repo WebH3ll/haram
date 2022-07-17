@@ -1,53 +1,113 @@
 /* mypage/editProfile.php */
 .profile-title {
-    color: blue;
-    margin-bottom: 0;
-    font-size: 1.2rem;
+	color: blue;
+	margin-bottom: 0;
+	font-size: 1.2rem;
 }
 
 .profile-content {
-    color: black;
-    font-size: 2rem;
+	color: black;
+	font-size: 2rem;
 }
 
 .edit-profile {
-    text-decoration: none !important;
+	text-decoration: none !important;
 }
 
 .delete-btn {
-    color: #fff;
-    background-color: #d32a2a;
-    border-color: #6c757d;
-    font-family: 'twayair';
+	color: #fff;
+	background-color: #d32a2a;
+	border-color: #6c757d;
+	font-family: "twayair";
 }
 
 .delete-btn:hover {
-color: #fff;
-background-color: #5c636a;
-border-color: #565e64;
+	color: #fff;
+	background-color: #5c636a;
+	border-color: #565e64;
 }
-.btn-check:focus + .delete-btn, .delete-btn:focus {
-color: #fff;
-background-color: #5c636a;
-border-color: #565e64;
-box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
+.btn-check:focus + .delete-btn,
+.delete-btn:focus {
+	color: #fff;
+	background-color: #5c636a;
+	border-color: #565e64;
+	box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
 }
-.btn-check:checked + .delete-btn, .btn-check:active + .delete-btn, .delete-btn:active, .delete-btn.active, .show > .delete-btn.dropdown-toggle {
-color: #fff;
-background-color: #565e64;
-border-color: #51585e;
+.btn-check:checked + .delete-btn,
+.btn-check:active + .delete-btn,
+.delete-btn:active,
+.delete-btn.active,
+.show > .delete-btn.dropdown-toggle {
+	color: #fff;
+	background-color: #565e64;
+	border-color: #51585e;
 }
-.btn-check:checked + .delete-btn:focus, .btn-check:active + .delete-btn:focus, .delete-btn:active:focus, .delete-btn.active:focus, .show > .delete-btn.dropdown-toggle:focus {
-box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
+.btn-check:checked + .delete-btn:focus,
+.btn-check:active + .delete-btn:focus,
+.delete-btn:active:focus,
+.delete-btn.active:focus,
+.show > .delete-btn.dropdown-toggle:focus {
+	box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
 }
-.delete-btn:disabled, .delete-btn.disabled {
-color: #fff;
-background-color: #6c757d;
-border-color: #6c757d;
+.delete-btn:disabled,
+.delete-btn.disabled {
+	color: #fff;
+	background-color: #6c757d;
+	border-color: #6c757d;
 }
 
 .delete-modal-content {
-    text-align: center;
-    color:#d32a2a;
-    font-size: 1.4rem;
+	text-align: center;
+	color: #d32a2a;
+	font-size: 1.4rem;
+	font-weight: bold;
+}
+
+.edit-btn {
+	color: #fff;
+	background-color: #4c2ad3;
+	border-color: #6c757d;
+	font-family: "twayair";
+}
+
+.edit-btn:hover {
+	color: #fff;
+	background-color: #5c636a;
+	border-color: #565e64;
+}
+.btn-check:focus + .edit-btn,
+.edit-btn:focus {
+	color: #fff;
+	background-color: #5c636a;
+	border-color: #565e64;
+	box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
+}
+.btn-check:checked + .edit-btn,
+.btn-check:active + .edit-btn,
+.edit-btn:active,
+.edit-btn.active,
+.show > .edit-btn.dropdown-toggle {
+	color: #fff;
+	background-color: #565e64;
+	border-color: #51585e;
+}
+.btn-check:checked + .edit-btn:focus,
+.btn-check:active + .edit-btn:focus,
+.edit-btn:active:focus,
+.edit-btn.active:focus,
+.show > .edit-btn.dropdown-toggle:focus {
+	box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
+}
+.edit-btn:disabled,
+.edit-btn.disabled {
+	color: #fff;
+	background-color: #6c757d;
+	border-color: #6c757d;
+}
+
+.edit-modal-content {
+	text-align: center;
+	color: #d32a2a;
+	font-size: 1.4rem;
+	font-weight: bold;
 }
