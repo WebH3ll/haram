@@ -125,10 +125,19 @@ include "../default_setting.php";
 
     <script>
         function checkCurrentPassword() {
-            location.href = "editProfileProc.php?username=" + document.getElementById('username').value + "&uid=" + document
-                .getElementById('uid').value + "&newpass=" +
-                document.getElementById('newpass').value + "&pwd=" + document.getElementById(
-                    'upass').value;
+            let username = document.getElementById('username').value;
+            let uid = document.getElementById('uid').value;
+            let newpass = document.getElementById('newpass').value;
+
+            if (username == "" || uid == "" || newpass == "") {
+                alert("Fill the all input box.");
+            } else {
+                location.href = "editProfileProc.php?username=" + document.getElementById('username').value + "&uid=" + document
+                    .getElementById('uid').value + "&newpass=" +
+                    document.getElementById('newpass').value + "&pwd=" + document.getElementById(
+                        'upass').value;
+            }
+
         }
     </script>
 
