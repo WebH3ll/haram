@@ -54,6 +54,7 @@ include "../default_setting.php";
         <section class="resume-section" id="about">
             <div class="resume-section-content">
 
+                <!-- Load Data -->
                 <?
                 $query = "select * from board where idx=?";
                 $data = $db->query($query, $_GET['idx'])->fetchArray();
@@ -64,33 +65,83 @@ include "../default_setting.php";
                     <a href="./"><i class="bi bi-arrow-left-short fa-2x"></i></a>
                 </div>
 
-                <!-- Edit post -->
-                <? if ($data['uid'] == $_SESSION['isLogin']) { ?>
-                    <div class="d-flex justify-content-end mb-3">
-                        <a href="./editPost.php?idx=<?= $_GET['idx'] ?>" class="edit-icon">Edit <i class="fa-solid fa-wrench"></i></a>
+                <!-- Private Check -->
+                <div <?
+                        if ($data['secret'] == NULL) {
+                            echo "style='display:none;'";
+                        }
+                        ?> class="d-flex-column" id="checkForm">
+                    <p class="private-title">This post is private. Please enter a password.</p>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">&nbsp;*&nbsp;</span>
+                        <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" id="inputPassword">
                     </div>
-                <? } ?>
+                    <button class="btn btn-secondary" onclick="checkPassword(<?= $data['secret'] ?>)">Check</button>
+                </div>
 
-                <!-- Post content -->
-                <b>#<?= $data['idx'] ?></b>
-                <hr>
-                <b>ID : </b><?= $data['uid'] ?>
-                <hr>
-                <b>Title : </b><?= $data['title'] ?>
-                <hr>
-                <b>Regdate : </b>@<?= $data['regdate'] ?>
-                <hr>
-                <b>Content : </b><?= nl2br($data['content']) ?>
+                <!-- Post Detail -->
+                <div <?
+                        if ($data['secret'] != NULL) {
+                            echo "style='display:none;'";
+                        }
+                        ?> id="postDetail">
+
+                    <!-- Edit post -->
+                    <? if ($data['uid'] == $_SESSION['isLogin']) { ?>
+                        <div class="d-flex justify-content-end mb-3">
+                            <a href="./editPost.php?idx=<?= $_GET['idx'] ?>" class="edit-icon mx-3">Edit <i class="fa-solid fa-wrench"></i></a>
+                            <a href="" class="edit-icon" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete <i class="fa-solid fa-trash-can"></i></a>
+                        </div>
+                    <? } ?>
+
+                    <!-- Post content -->
+                    <b>#<?= $data['idx'] ?></b>
+                    <hr>
+                    <b>ID : </b><?= $data['uid'] ?>
+                    <hr>
+                    <b>Title : </b><?= $data['title'] ?>
+                    <hr>
+                    <b>Regdate : </b>@<?= $data['regdate'] ?>
+                    <hr>
+                    <b>Content : </b><?= nl2br($data['content']) ?>
+                </div>
             </div>
         </section>
     </div>
-    <hr class="m-0" />
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete Post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <p class="delete-modal-content">Do you really want to delete?</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn delete-post-btn" onclick="location.href='deletePostProc.php?idx=<?= $data['idx'] ?>'">Delete</button>
+                </div>
+
+            </div>
+        </div>
     </div>
+
+    <script>
+        function checkPassword(password) {
+            if (document.getElementById('inputPassword').value == password) {
+                document.getElementById('checkForm').style = "display:none";
+                document.getElementById('postDetail').style = "display:inline";
+            }
+        }
+    </script>
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="bootstrap/js/scripts.js"></script>
 </body>
 
 </html>

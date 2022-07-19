@@ -3,16 +3,44 @@
     text-decoration: none !important;
     font-size: 1.2rem;
 }
-
-/* /src/board/editPost.php */
-.edit-post-input {
-    /* display: inline-block;
-    min-height: 1em;
-    vertical-align: middle;
-    cursor: wait;
-    background-color: currentColor;
-    opacity: 0.5; */
+.private-title {
+	color:#ff0000;
+	font-size: 1.5rem;
+	font-weight: bold;
 }
+
+
+/* /src/board/deletePost.php */
+.delete-post-btn {
+	color: white;
+	background-color: #ff0000;
+	border-color: #6c757d;
+	font-family: 'twayair';
+  }
+  .delete-post-btn:hover {
+	color: #fff;
+	background-color: #5c636a;
+	border-color: #565e64;
+  }
+  .btn-check:focus + .delete-post-btn, .delete-post-btn:focus {
+	color: #fff;
+	background-color: #5c636a;
+	border-color: #565e64;
+	box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
+  }
+  .btn-check:checked + .delete-post-btn, .btn-check:active + .delete-post-btn, .delete-post-btn:active, .delete-post-btn.active, .show > .delete-post-btn.dropdown-toggle {
+	color: #fff;
+	background-color: #565e64;
+	border-color: #51585e;
+  }
+  .btn-check:checked + .delete-post-btn:focus, .btn-check:active + .delete-post-btn:focus, .delete-post-btn:active:focus, .delete-post-btn.active:focus, .show > .delete-post-btn.dropdown-toggle:focus {
+	box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
+  }
+  .delete-post-btn:disabled, .delete-post-btn.disabled {
+	color: #fff;
+	background-color: #6c757d;
+	border-color: #6c757d;
+  }
 
 /* /src/mypage/editProfile.php */
 .profile-title {

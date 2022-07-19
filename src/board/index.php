@@ -22,9 +22,6 @@ include "../default_setting.php";
 
     <!-- bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css">
-
-    <!-- my css -->
-    <link href="../../bootstrap/css/mystyles.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
@@ -70,7 +67,7 @@ include "../default_setting.php";
                                 <th scope="col">name</th>
                                 <th scope="col">title</th>
                                 <th scope="col">regdate</th>
-                                <th scope="col">isPrivate</th>
+                                <th scope="col">isSecret</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -85,7 +82,7 @@ include "../default_setting.php";
                                     <td><a href="./detail.php?idx=<?= $data['idx'] ?>"><?= $data['title'] ?></a></td>
                                     <td>@<?= $data['regdate'] ?></td>
                                     <td>
-                                        <? if ($data['isPrivate'] == 1) { ?>
+                                        <? if ($data['secret'] != NULL) { ?>
                                             <i class="fa-solid fa-lock"></i>
                                         <? } ?>
                                     </td>
@@ -100,8 +97,6 @@ include "../default_setting.php";
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="bootstrap/js/scripts.js"></script>
 </body>
 
 </html>

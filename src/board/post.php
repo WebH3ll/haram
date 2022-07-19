@@ -56,11 +56,22 @@ include "../default_setting.php";
 
                 <!-- Content -->
                 <form action="postProc.php" method="post" class="d-flex flex-column">
-                    <div class="form-check align-self-end mb-2">
-                        <label class="form-check-label fs-4 align-middle " for="privateCheck">
+
+                    <!-- Back Icon -->
+                    <div class="mb-5">
+                        <a href="./"><i class="bi bi-arrow-left-short fa-2x"></i></a>
+                    </div>
+
+                    <!-- Check Private -->
+                    <div class="form-check align-self-end mb-2" onclick="privateCheck()">
+                        <label class="form-check-label fs-4 align-middle" for="private" onclick="privateCheck()">
                             Private
                         </label>
-                        <input class="form-check-input p-2 mt-2" type="checkbox" id="privateCheck" name="isPrivate">
+                        <input class="form-check-input p-2 mt-2" type="checkbox" id="private" name="password">
+                    </div>
+                    <div class="form-floating align-self-end mb-3" id="passwordInput" style="display:none;">
+                        <input type="text" class="form-control" id="password" placeholder="Leave a password here" name="secret">
+                        <label for="password">Secret Password</label>
                     </div>
 
                     <div class="form-floating mb-3">
@@ -79,6 +90,19 @@ include "../default_setting.php";
             </div>
         </section>
     </div>
+
+    <script>
+        function privateCheck() {
+            let flag = document.getElementById('passwordInput').style.display;
+
+            if (flag == "none") {
+                document.getElementById('passwordInput').style.display = "inline";
+            } else {
+                document.getElementById('passwordInput').style.display = "none";
+            }
+            document.getElementById('password').value = "";
+        }
+    </script>
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

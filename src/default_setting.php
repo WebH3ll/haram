@@ -15,3 +15,6 @@ session_start();
 
 // super-fast php mysql db
 include "dbClass.php";
+
+// Set TimeZone
+date_default_timezone_set("Asia/Seoul");

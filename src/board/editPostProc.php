@@ -4,10 +4,10 @@ include "../default_setting.php";
 $title = $_POST['title'];
 $content = $_POST['content'];
 $date = date("Y-m-d H:i:s");
-$isPrivate = isset($_POST['isPrivate']) ? '1' : '0';
+$secret = isset($_POST['secret']) ? $_POST['secret'] : NULL;
 
-$query = "UPDATE board SET title=?, content=?, regdate=?, isPrivate=? WHERE idx=?";
-$data = $db->query($query, $title, $content, $date, $isPrivate, $_POST['idx']);
+$query = "UPDATE board SET title=?, content=?, regdate=?, secret=? WHERE idx=?";
+$data = $db->query($query, $title, $content, $date, $secret, $_POST['idx']);
 ?>
 
 <script>
