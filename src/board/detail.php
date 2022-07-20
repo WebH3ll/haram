@@ -15,8 +15,7 @@ include "../default_setting.php";
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
-        type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="../../bootstrap/css/styles.css" rel="stylesheet" />
@@ -34,18 +33,15 @@ include "../default_setting.php";
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
             <span class="d-none d-lg-block">
-                <img class="img-fluid img-profile rounded-circle mx-auto mb-2"
-                    src="https://cdn.imweb.me/upload/S20200903356594b8dc821/0962e15de8a7a.jpg" alt="..." />
+                <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="https://cdn.imweb.me/upload/S20200903356594b8dc821/0962e15de8a7a.jpg" alt="..." />
             </span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../../">Main</a></li>
                 <? if (isset($_SESSION['isLogin'])) { ?>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/src/mypage">My page</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/src/mypage">My page</a></li>
                 <? } ?>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="./">Board</a></li>
                 <li class="nav-item"><a class="nav-link" href="/src/service/">Service</a></li>
@@ -63,6 +59,9 @@ include "../default_setting.php";
                 <?
                 $query = "select * from board where idx=?";
                 $data = $db->query($query, $_GET['idx'])->fetchArray();
+
+                $file_query = "SELECT * FROM file WHERE idx=?";
+                $file = $db->query($file_query, $_GET['idx'])->fetchArray();
                 ?>
 
                 <!-- Back Icon -->
@@ -71,28 +70,28 @@ include "../default_setting.php";
                 </div>
 
                 <!-- Private Check -->
-                <div <? if ($data['secret']==NULL) { echo "style='display:none;'" ; } ?> class="d-flex-column"
-                    id="checkForm">
+                <div <? if ($data['secret'] == NULL) {
+                            echo "style='display:none;'";
+                        } ?> class="d-flex-column" id="checkForm">
                     <p class="private-title">This post is private. Please enter a password.</p>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">&nbsp;*&nbsp;</span>
-                        <input type="password" class="form-control" placeholder="Password" aria-label="Password"
-                            aria-describedby="basic-addon1" id="inputPassword">
+                        <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" id="inputPassword">
                     </div>
                     <button class="btn btn-secondary" onclick="checkPassword(<?= $data['secret'] ?>)">Check</button>
                 </div>
 
                 <!-- Post Detail -->
-                <div <? if ($data['secret'] !=NULL) { echo "style='display:none;'" ; } ?> id="postDetail">
+                <div <? if ($data['secret'] != NULL) {
+                            echo "style='display:none;'";
+                        } ?> id="postDetail">
 
                     <!-- Edit post -->
                     <? if ($data['uid'] == $_SESSION['isLogin']) { ?>
-                    <div class="d-flex justify-content-end mb-3">
-                        <a href="./editPost.php?idx=<?= $_GET['idx'] ?>" class="edit-icon mx-3">Edit <i
-                                class="fa-solid fa-wrench"></i></a>
-                        <a href="" class="edit-icon" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete <i
-                                class="fa-solid fa-trash-can"></i></a>
-                    </div>
+                        <div class="d-flex justify-content-end mb-3">
+                            <a href="./editPost.php?idx=<?= $_GET['idx'] ?>" class="edit-icon mx-3">Edit <i class="fa-solid fa-wrench"></i></a>
+                            <a href="" class="edit-icon" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete <i class="fa-solid fa-trash-can"></i></a>
+                        </div>
                     <? } ?>
 
                     <!-- Post content -->
@@ -105,6 +104,14 @@ include "../default_setting.php";
                     <b>Regdate : </b>@<?= $data['regdate'] ?>
                     <hr>
                     <b>Content : </b><?= nl2br($data['content']) ?>
+                    <?
+                    if ($file) {
+                        echo "<hr><b>File : </b>";
+                        $file_idx = $file['idx'];
+                        $file_name = $file['name'];
+                        echo "<a href='fileDownload.php?file_idx=$file_idx'>$file_name</a>";
+                    }
+                    ?>
                 </div>
             </div>
         </section>
@@ -125,8 +132,7 @@ include "../default_setting.php";
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn delete-post-btn"
-                        onclick="location.href='deletePostProc.php?idx=<?= $data['idx'] ?>'">Delete</button>
+                    <button type="button" class="btn delete-post-btn" onclick="location.href='deletePostProc.php?idx=<?= $data['idx'] ?>'">Delete</button>
                 </div>
 
             </div>
@@ -134,12 +140,12 @@ include "../default_setting.php";
     </div>
 
     <script>
-    function checkPassword(password) {
-        if (document.getElementById('inputPassword').value == password) {
-            document.getElementById('checkForm').style = "display:none";
-            document.getElementById('postDetail').style = "display:inline";
+        function checkPassword(password) {
+            if (document.getElementById('inputPassword').value == password) {
+                document.getElementById('checkForm').style = "display:none";
+                document.getElementById('postDetail').style = "display:inline";
+            }
         }
-    }
     </script>
 
     <!-- Bootstrap core JS-->

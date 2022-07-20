@@ -7,34 +7,33 @@ $content = $_POST['content'];
 $date = date("Y-m-d H:i:s");
 $secret = isset($_POST['secret']) ? $_POST['secret'] : NULL;
 
-$query = "insert into board(uid, title, content, regdate, secret) values(?, ?, ?, ?, ?)";
+$query = "INSERT INTO board(uid, title, content, regdate, secret) VALUES(?, ?, ?, ?, ?)";
 $data = $db->query($query, $uid, $title, $content, $date, $secret);
 
-// image upload
-$file = $_FILES['image']['tmp_name'];
+/* File Upload 처리 */
+$file = $_FILES['file']['tmp_name'];
 
+if ($file) {
+    $upload_dir = './data';
 
-// $idx = $data['idx'];
-$idx = 30;
-$image_data = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-$image_name = addslashes($_FILES['image']['name']);
-// $image_size = getimagesize($_FILES['image']['tmp_name']);
+    $name = $_FILES['file']['name'];
+    $size = $_FILES['file']['size'];
 
-// if($image_size == FALSE) {
-//     echo "That is not an image";
-//     exit;
-// }
+    // idx 가져오기
+    $idx_query = "SELECT idx FROM board WHERE uid=? AND regdate=?";
+    $idx_data = $db->query($idx_query, $uid, $date)->fetchArray();
+    $idx = $idx_data['idx'];
 
-$query = "INSERT INTO image(idx, img, name) VALUES(?,?,?)";
-$data = $db->query($query, $idx, $image_data, $image_name);
+    // 파일 이동
+    move_uploaded_file($_FILES['file']['tmp_name'], "$upload_dir/$name");
 
+    $file_query = "INSERT INTO file (idx, name, size) VALUES (?, ?, ?)";
+    $file_data = $db->query($file_query, $idx, $name, $size);
+}
 
-$query = "SELECT * FROM image WHERE idx=?";
-$data = $db->query($query, $idx)->fetchArray();
-echo "<img src='data:image/jpeg;base64," . base64_encode($data['img']) . "' width='250' height='200' />";
 ?>
 
 <script>
-// alert("Successfully Posted!");
-// location.href = "./";
+    alert("Successfully Posted!");
+    location.href = "./";
 </script>
