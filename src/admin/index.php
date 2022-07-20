@@ -15,8 +15,7 @@ include "../default_setting.php";
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
-        type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/bootstrap/css/styles.css" rel="stylesheet" />
@@ -32,13 +31,10 @@ include "../default_setting.php";
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
         <div class="navbar-brand js-scroll-trigger">
             <span class="d-none d-lg-block">
-                <img class="img-fluid img-profile rounded-circle mx-auto mb-2"
-                    src="https://cdn.imweb.me/upload/S20200903356594b8dc821/0962e15de8a7a.jpg" alt="..." />
+                <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="https://cdn.imweb.me/upload/S20200903356594b8dc821/0962e15de8a7a.jpg" alt="..." />
             </span>
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/">Main</a></li>
@@ -67,45 +63,18 @@ include "../default_setting.php";
                     </thead>
                     <tbody>
                         <?
-                            $query = "select * from user";
-                            $list = $db->query($query)->fetchAll();
-                            foreach ($list as $data) {
-                            ?>
-                        <tr>
-                            <th scope="row"><?= $data['idx'] ?></th>
-                            <td><?= $data['uid'] ?></td>
-                            <td><?= $data['name'] ?></td>
-                            <td><?= $data['ip'] ?></td>
-                            <td><button type="button" class="btn delete-btn" data-bs-toggle="modal"
-                                    data-bs-target="#deleteModal">Delete</button></td>
-                        </tr>
+                        $query = "select * from user";
+                        $list = $db->query($query)->fetchAll();
+                        foreach ($list as $data) {
+                        ?>
+                            <tr>
+                                <th scope="row"><?= $data['idx'] ?></th>
+                                <td><?= $data['uid'] ?></td>
+                                <td><?= $data['name'] ?></td>
+                                <td><?= $data['ip'] ?></td>
+                                <td><a href="deleteUser.php?idx=<?= $data['idx'] ?>">Delete</a></td>
+                            </tr>
 
-                        <!-- Delete User Modal -->
-                        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog  modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="deleteModalLabel">Delete User</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Closewww"></button>
-                                    </div>
-
-                                    <div class="modal-body">
-                                        <p class="delete-modal-content">Are you sure you want <br> to delete this User?
-                                        </p>
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn delete-btn"
-                                            onclick="location.href='deleteUser.php?idx=<?=$data['idx']?>'">Delete</button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
                         <?  } ?>
                     </tbody>
                 </table>
@@ -113,8 +82,6 @@ include "../default_setting.php";
             </div>
         </section>
     </div>
-
-
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

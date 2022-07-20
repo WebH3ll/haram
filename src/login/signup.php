@@ -10,8 +10,8 @@ $result = mysqli_query($connect, $query);
 $data = mysqli_fetch_array($result);
 
 // 관리자 계정으로 회원가입 하려는 경우
-if($uid == "Admin") {
-    echo "해당 엑세스 권한이 없습니다.";
+if ($uid == "Admin") {
+    echo "<script>alert('해당 엑세스 권한이 없습니다.')</script>";
 }
 // uid가 중복되지 않는 경우
 else if (!isset($data)) {
@@ -21,13 +21,14 @@ else if (!isset($data)) {
     $query = "insert into user(uid, upass, name, ip) values(?, md5(?), ?, ?)";
     $insert = $db->query($query, $user_info);
 
-    echo "회원가입이 완료되었습니다.";
+    echo "<script>alert('회원가입이 완료되었습니다.')</script>";
 }
 // uid가 중복되는 경우
 else {
-    echo "이미 존재하는 아이디입니다.";
+    echo "<script>alert('이미 존재하는 아이디입니다.')</script>";
 }
 ?>
 
-<br>
-<a href="../../index.php">홈으로</a>
+<script>
+    location.href = "/";
+</script>

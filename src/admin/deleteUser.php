@@ -6,6 +6,6 @@ $data = $db->query($query, $_GET['idx']);
 ?>
 
 <script>
-alert("Successfully deleted the User!");
-location.href = "./";
+    alert("Successfully deleted the User!");
+    location.href = "./";
 </script>
