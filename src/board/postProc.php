@@ -12,6 +12,6 @@ $data = $db->query($query, $uid, $title, $content, $date, $secret);
 ?>
 
 <script>
-    alert("Successfully Posted!");
-    location.href = "./";
+alert("Successfully Posted!");
+location.href = "./";
 </script>
