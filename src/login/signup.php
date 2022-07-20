@@ -9,8 +9,12 @@ $query = "select * from user where uid='$uid'";
 $result = mysqli_query($connect, $query);
 $data = mysqli_fetch_array($result);
 
+// 관리자 계정으로 회원가입 하려는 경우
+if($uid == "Admin") {
+    echo "해당 엑세스 권한이 없습니다.";
+}
 // uid가 중복되지 않는 경우
-if (!isset($data)) {
+else if (!isset($data)) {
     $user_info = array($uid, $upass, $name);
     $user_info[] = $_SERVER['REMOTE_ADDR'];
 
