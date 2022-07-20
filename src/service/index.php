@@ -1,3 +1,6 @@
+<?
+include "../default_setting.php";
+?>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -53,11 +56,11 @@
 
                 <!-- Ping service -->
                 <div>
-                    <p class="ping-title">Ping Service</p>
+                    <p class="service-title">Ping Service</p>
                     <div class="input-group my-3">
                         <input type="text" class="form-control" placeholder="IP Address" aria-label="ip"
                             aria-describedby="basic-addon1" id="ipAddress">
-                        <button type="button" class="btn default-btn ping-btn" onclick="ping()">Ping!</button>
+                        <button type="button" class="btn default-btn service-btn" onclick="ping()">Ping!</button>
                     </div>
                 </div>
 
@@ -65,12 +68,11 @@
 
                 <!-- DNS Lookup Service -->
                 <div>
-                    <p class="ping-title">DNS Lookup Service</p>
+                    <p class="service-title">DNS Lookup Service</p>
                     <div class="input-group my-3">
-                        <input type="text" class="form-control" placeholder="URL Address" aria-label="ip"
-                            aria-describedby="basic-addon1" id="ip">
-                        <button type="button" class="btn default-btn ping-btn"
-                            onclick="location.href='pingProc.php?ip'">Ping!</button>
+                        <input type="text" class="form-control" placeholder="URL Address" aria-label="url"
+                            aria-describedby="basic-addon1" id="urlAddress">
+                        <button type="button" class="btn default-btn service-btn" onclick="dnslookup()">Lookup!</button>
                     </div>
                 </div>
 
@@ -87,6 +89,16 @@
             location.href = 'pingProc.php?ip=' + ip;
         } else {
             alert("Invalid IP Address!");
+        }
+    }
+
+    function dnslookup() {
+        let url = document.getElementById('urlAddress').value;
+
+        if (url != "") {
+            location.href = 'dnslookupProc.php?url=' + url;
+        } else {
+            alert("Invalid URL Address!");
         }
     }
     </script>
