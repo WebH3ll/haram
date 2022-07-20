@@ -30,7 +30,7 @@ include "src/default_setting.php";
 
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <div class="navbar-brand js-scroll-trigger">
+        <div class="navbar-brand">
             <span class="d-none d-lg-block">
                 <img class="img-fluid img-profile rounded-circle mx-auto mb-2"
                     src="https://cdn.imweb.me/upload/S20200903356594b8dc821/0962e15de8a7a.jpg" alt="..." />
@@ -41,11 +41,12 @@ include "src/default_setting.php";
                 class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/">Main</a></li>
+                <li class="nav-item"><a class="nav-link" href="/">Main</a></li>
                 <? if (isset($_SESSION['isLogin'])) { ?>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/src/mypage">My page</a></li>
+                <li class="nav-item"><a class="nav-link" href="/src/mypage">My page</a></li>
                 <? } ?>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/src/board/">Board</a></li>
+                <li class="nav-item"><a class="nav-link" href="/src/board/">Board</a></li>
+                <li class="nav-item"><a class="nav-link" href="/src/service/">Service</a></li>
             </ul>
         </div>
     </nav>
@@ -167,7 +168,7 @@ include "src/default_setting.php";
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- my script -->
+    <!-- Notion Icon -->
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
 </body>
 

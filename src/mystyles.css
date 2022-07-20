@@ -3,6 +3,18 @@
 	background-color: #ff0000 !important;
 }
 
+/* /src/service/index.php */
+.ping-title {
+	font-size: 1.6rem;
+	font-weight: bolder;
+	color: blue;
+}
+.ping-btn {
+	color: white !important;
+	background-color: #6c757d !important;
+	width: 100px;
+}
+
 /* /src/admin/index.php */
 .admin-delete-user {
 	color: #ff0000 !important;
@@ -174,4 +186,46 @@
 	color: #d32a2a;
 	font-size: 1.4rem;
 	font-weight: bold;
+}
+
+/* GLOBAL */
+.default-btn {
+	color: white;
+	background-color: white;
+	border-color: #6c757d;
+	font-family: "twayair";
+}
+.default-btn:hover {
+	color: #fff;
+	background-color: #5c636a;
+	border-color: #565e64;
+}
+.btn-check:focus + .default-btn,
+.default-btn:focus {
+	color: #fff;
+	background-color: #5c636a;
+	border-color: #565e64;
+	box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
+}
+.btn-check:checked + .default-btn,
+.btn-check:active + .default-btn,
+.default-btn:active,
+.default-btn.active,
+.show > .default-btn.dropdown-toggle {
+	color: #fff;
+	background-color: #565e64;
+	border-color: #51585e;
+}
+.btn-check:checked + .default-btn:focus,
+.btn-check:active + .default-btn:focus,
+.default-btn:active:focus,
+.default-btn.active:focus,
+.show > .default-btn.dropdown-toggle:focus {
+	box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
+}
+.default-btn:disabled,
+.default-btn.disabled {
+	color: #fff;
+	background-color: #6c757d;
+	border-color: #6c757d;
 }
