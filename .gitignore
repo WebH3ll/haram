@@ -1,1 +1,4 @@
 .prettierignore
+
+# File data
+/src/board/data/*
