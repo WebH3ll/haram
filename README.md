@@ -52,7 +52,7 @@
 <br>
 
 <h2>📈 취약점 분석 보고서</h2>
-<p><a href="https://livecauac-my.sharepoint.com/:b:/g/personal/lunaram620_cau_ac_kr/EQn4JOi0OuVBl-5-7eyMMp0BI5eIK8yph9W45aSD1ksfuQ?e=rYuNsI" target="_blank">📃취약점 분석 보고서</a></p>
+<p><a href="https://livecauac-my.sharepoint.com/:b:/g/personal/lunaram620_cau_ac_kr/EQn4JOi0OuVBl-5-7eyMMp0BI5eIK8yph9W45aSD1ksfuQ?e=e7PjiH" target="_blank">📃취약점 분석 보고서</a></p>
 
 <br>
 
