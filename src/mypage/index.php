@@ -69,6 +69,15 @@ include "../default_setting.php";
                         <a class="edit-profile align-self-end mb-3" href="editProfile.php">
                             Edit profile <i class="fa-solid fa-user-pen"></i>
                         </a>
+                        <p class="align-self-end">Last Logined IP : 
+                            <?
+                                $uid = $_SESSION['isLogin'];
+                               $query = "SELECT ip FROM user WHERE uid='$uid'";
+                               $result = mysqli_query($connect, $query);
+                               $data = mysqli_fetch_array($result);
+                               echo $data['ip'];
+                            ?>
+                        </p>
                         <p class="profile-title">Username</p>
                         <p class="profile-content"><?= $data['name'] ?></p>
                         <hr>

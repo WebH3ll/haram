@@ -16,6 +16,18 @@ if (!isset($data['idx'])) {
 else {
     $_SESSION['isLogin'] = $uid;
     setcookie("user_name",  $data['name'], 0, '/');
+
+    // True-Client-IP
+    $headers = apache_request_headers();
+
+    if (isset($headers['True-Client-IP'])) {
+        $ip = $headers['True-Client-IP'];
+    } else {
+        $ip = $_SERVER['REMOTE_ADDR'];
+    }
+
+    $query = "UPDATE user SET ip='$ip' WHERE uid='$uid'";
+    $result = mysqli_query($connect, $query);
 }
 ?>
 
