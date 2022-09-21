@@ -10,7 +10,7 @@ include "src/default_setting.php";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>CAUtion page</title>
+    <title>WebHell - haram</title>
     <link rel="icon" type="image/x-icon" href="bootstrap/assets/img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -31,7 +31,7 @@ include "src/default_setting.php";
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
         <div class="navbar-brand">
             <span class="d-none d-lg-block">
-                <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="./CAUtion_LOGO.jpg" alt="..." />
+                <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="https://cdn.imweb.me/upload/S20200903356594b8dc821/0962e15de8a7a.jpg" alt="..." />
             </span>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -59,11 +59,11 @@ include "src/default_setting.php";
                     ?>
                         <span class="text-primary"><?= $_COOKIE['user_name'] ?></span>
                     <? } else { ?>
-                        <span class="text-primary">CAUtion</span>
+                        <span class="text-primary">Web-Hell</span>
                     <? } ?>
                 </h1>
                 <div class="subheading mb-5">
-                    CAU - Information Security CLUB
+                    2022-Summer Web-Hell Study
                 </div>
 
                 <!-- Before Log In -->
@@ -93,18 +93,17 @@ include "src/default_setting.php";
                     <button type=" button" class="btn btn-primary w-10" onclick="location.href='src/login/logout.php'">Logout</button>
 
                     <!-- Admin -->
-                    <? if ($_SESSION['isLogin'] == "admin") { ?>
+                    <? if ($_SESSION['isLogin'] == "Admin") { ?>
                         <button type=" button" class="btn btn-primary admin-page w-10" onclick="location.href='src/admin/'">Admin
                             page</button>
-                        <button type=" button" class="btn btn-primary admin-page w-10" onclick="location.href='src/admin/resetdb.php'">Reset Database</button>
                     <? } ?>
                 <? } ?>
 
                 <!-- social icons -->
                 <div class=" social-icons mt-5">
-                    <a class="social-icon" href="#"><i class="fab fa-github"></i></a>
-                    <a class="social-icon" href="#"><span class="iconify" data-icon="simple-icons:notion"></span></a>
-                    <a class="social-icon" href="#"><i class="fa-brands fa-aws"></i></a>
+                    <a class="social-icon" href="https://github.com/WebH3ll/haram" target="_blank"><i class="fab fa-github"></i></a>
+                    <a class="social-icon" href="https://myoungseok98.notion.site/Web-Hacking-WebH3ll-70ee025b579b4ac08439320c4c700dd7" target="_blank"><span class="iconify" data-icon="simple-icons:notion"></span></a>
+                    <a class="social-icon" href="http://13.125.207.167/" target="_blank"><i class="fa-brands fa-aws"></i></a>
                 </div>
 
 

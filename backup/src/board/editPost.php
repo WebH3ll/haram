@@ -23,9 +23,6 @@ include "../default_setting.php";
 
     <!-- bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css">
-
-    <!-- my css -->
-    <link href="../../bootstrap/css/mystyles.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
@@ -34,7 +31,8 @@ include "../default_setting.php";
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
         <div class="navbar-brand js-scroll-trigger">
             <span class="d-none d-lg-block">
-                <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="/CAUtion_LOGO.jpg" alt="..." />
+                <img class="img-fluid img-profile rounded-circle mx-auto mb-2"
+                    src="https://cdn.imweb.me/upload/S20200903356594b8dc821/0962e15de8a7a.jpg" alt="..." />
             </span>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
@@ -58,15 +56,24 @@ include "../default_setting.php";
         <section class="resume-section" id="about">
             <div class="resume-section-content">
 
+                <!-- Load previous Data -->
+                <?
+                $query = "SELECT * FROM board WHERE idx=?";
+                $data = $db->query($query, $_GET['idx'])->fetchArray();
+
+                $file_query = "SELECT * FROM file WHERE idx=?";
+                $file = $db->query($file_query, $_GET['idx'])->fetchArray();
+                ?>
+
+                <!-- Back Icon -->
+                <div class="mb-3">
+                    <a href="./"><i class="bi bi-arrow-left-short fa-2x"></i></a>
+                </div>
+
                 <!-- Content -->
-                <form action="postProc.php" method="post" class="d-flex flex-column" enctype="multipart/form-data">
+                <form action="editPostProc.php" method="post" class="d-flex flex-column">
+                    <input type="hidden" name="idx" value="<?= $_GET['idx'] ?>">
 
-                    <!-- Back Icon -->
-                    <div class="mb-5">
-                        <a href="./"><i class="bi bi-arrow-left-short fa-2x"></i></a>
-                    </div>
-
-                    <!-- Check Private -->
                     <div class="form-check align-self-end mb-2" onclick="privateCheck()">
                         <label class="form-check-label fs-4 align-middle" for="private" onclick="privateCheck()">
                             Private
@@ -82,20 +89,20 @@ include "../default_setting.php";
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="title" placeholder="Leave a title here"
                             name="title">
-                        <label for="title">Title</label>
+                        <label for="title"><?= $data['title'] ?></label>
                     </div>
 
                     <div class="form-floating mb-3">
                         <textarea class="form-control" placeholder="Leave a content here" id="content"
                             style="height: 100px" name="content"></textarea>
-                        <label for="content">Content</label>
+                        <label for="content"><?= $data['content'] ?></label>
                     </div>
 
                     <div class="mb-3">
-                        <input class="form-control" type="file" name="file">
+                        <input class="form-control" type="file" name="file" value="<?=$file['name']?>">
                     </div>
 
-                    <button type="submit" class="btn btn-primary mt-3 align-self-end">Post</button>
+                    <button type="submit" class="btn btn-primary mt-3 align-self-end">Edit</button>
                 </form>
 
             </div>

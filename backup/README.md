@@ -65,10 +65,3 @@
   <li><a href="https://1unaram.notion.site/4-ed8cf94ff80446acbaa90ecbf441d2d5" target="_blank">⭐4 | Write-Up</a></li>
 </ul>
 
-<br>
-
-<h2>🏆Web Advanced - Vulnerable Web</h2>
-<p>: 취약점이 존재하는 웹 사이트를 제작</p>
-<ul>
-  <li>HTTP Header XSS</li>
-</ul>
